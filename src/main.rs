@@ -1,10 +1,12 @@
-use rand::{Rng, distributions::uniform::SampleRange};
+use std::cmp::Ordering;
+use rand::Rng;
 
 struct BinaryTree {
     value: Option<i64>,
     left: Option<Box<BinaryTree>>,
     right: Option<Box<BinaryTree>>,
 }
+
 
 impl BinaryTree {
     fn new(value: Option<i64>) -> Self {
@@ -20,7 +22,7 @@ impl BinaryTree {
                     Ordering::Equal => return,
                 };
                 match target {
-                    Some(BinaryTree) => BinaryTree.push(value),
+                    Some(binary_tree) => binary_tree.push(value),
                     None => *target = Some(Box::new(BinaryTree::new(Some(value))))
                 }
             },
